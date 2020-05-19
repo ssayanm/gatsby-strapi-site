@@ -1,6 +1,7 @@
 import React from "react"
 import Man from "../assets/images/man.png"
 import ManHome from "../assets/images/manhome.png"
+import { Link, StaticQuery, graphql } from "gatsby"
 
 const HomePage = () => {
   return (
@@ -102,7 +103,38 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="bg-gray-100 pt-6 pb-6"></section>
+      <section className="bg-gray-100 pt-6 pb-6">
+        <StaticQuery
+          query={graphql`
+            {
+              allStrapiArticle {
+                edges {
+                  node {
+                    title
+                    image {
+                      publicURL
+                    }
+                    content
+                    strapiId
+                  }
+                }
+              }
+            }
+          `}
+          render={data =>
+            data.allStrapiArticle.edges.map((article, i) => {
+              return (
+                <div
+                  key={article.node.strapiId}
+                  className="p-3 cursor-pointer hover:text-gray-400"
+                >
+                  {article.node.title}
+                </div>
+              )
+            })
+          }
+        />
+      </section>
 
       <section className="py-8">
         <div className="container mx-auto px-2 pt-4 pb-12 text-gray-800">
