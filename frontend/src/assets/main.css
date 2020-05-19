@@ -631,7 +631,6 @@ video {
     rgb(173, 46, 255) 0%,
     rgb(77, 223, 255) 100%
   );
-  padding: 2em;
 }
 
 .space-y-0 > :not(template) ~ :not(template) {
