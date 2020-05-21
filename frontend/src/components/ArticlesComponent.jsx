@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import ReactMarkdown from "react-markdown"
-import CardComponent from "./CardComponent"
+import Moment from "react-moment"
 
 export const query = graphql`
-  query ArticleQuery($id: Int!) {
-    strapiArticle(strapiId: { eq: $id }) {
+  query ArticleQuery($id: String) {
+    strapiArticles(strapiId: { eq: $id }) {
       strapiId
       title
       content
@@ -18,7 +18,7 @@ export const query = graphql`
 `
 
 const ArticlesComponent = ({ articles }) => {
-  const article = articles.strapiArticle
+  const article = articles.strapiArticles
   return (
     <React.Fragment>
       <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
@@ -29,6 +29,26 @@ const ArticlesComponent = ({ articles }) => {
       </div>{" "}
       <div className="container flex flex-wrap mb-4 w-full uppercase justify-center">
         <h1>{article.title}</h1>
+      </div>
+      <div>
+        <div
+          id="banner"
+          className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+          data-src={article.image.publicURL}
+          data-srcset={article.image.publicURL}
+          data-uk-img
+        >
+          <h1>{article.title}</h1>
+        </div>
+
+        <div className="uk-section">
+          <div className="uk-container uk-container-small">
+            <ReactMarkdown source={article.content} />
+            <p>
+              <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+            </p>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   )

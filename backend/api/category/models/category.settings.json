@@ -12,9 +12,9 @@
     "name": {
       "type": "string"
     },
-    "category": {
-      "via": "articles",
-      "model": "articles"
+    "articles": {
+      "via": "category",
+      "collection": "article"
     }
   }
 }

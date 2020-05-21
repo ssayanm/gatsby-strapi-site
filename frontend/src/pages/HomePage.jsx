@@ -107,7 +107,7 @@ const HomePage = () => {
         <StaticQuery
           query={graphql`
             {
-              allStrapiArticle {
+              allStrapiArticles {
                 edges {
                   node {
                     title
@@ -122,7 +122,7 @@ const HomePage = () => {
             }
           `}
           render={data =>
-            data.allStrapiArticle.edges.map((article, i) => {
+            data.allStrapiArticles.edges.map((article, i) => {
               return (
                 <div
                   key={article.node.strapiId}

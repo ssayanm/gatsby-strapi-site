@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "articles",
   "info": {
-    "name": "articles"
+    "name": "article"
   },
   "options": {
     "increments": true,
@@ -29,9 +29,9 @@
     "published_at": {
       "type": "date"
     },
-    "articles": {
-      "collection": "category",
-      "via": "category"
+    "category": {
+      "model": "category",
+      "via": "articles"
     }
   }
 }
