@@ -1,7 +1,7 @@
 import React from "react"
 import Man from "../assets/images/man.png"
 import ManHome from "../assets/images/manhome.png"
-import { Link, StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import ArticlesComponent from "../components/ArticlesComponent"
 
 const HomePage = () => {
@@ -105,29 +105,34 @@ const HomePage = () => {
       </section>
 
       <section className="bg-gray-100 pt-6 pb-6">
-        <StaticQuery
-          query={graphql`
-            query {
-              allStrapiArticle {
-                edges {
-                  node {
-                    strapiId
-                    title
-                    category {
-                      name
-                    }
-                    image {
-                      publicURL
+        <div className="container mx-auto px-2 pt-4 pb-12 text-gray-800">
+          <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+            Blog Posts
+          </h1>
+          <StaticQuery
+            query={graphql`
+              query {
+                allStrapiArticle {
+                  edges {
+                    node {
+                      strapiId
+                      title
+                      category {
+                        name
+                      }
+                      image {
+                        publicURL
+                      }
                     }
                   }
                 }
               }
-            }
-          `}
-          render={data => (
-            <ArticlesComponent articles={data.allStrapiArticle.edges} />
-          )}
-        />
+            `}
+            render={data => (
+              <ArticlesComponent articles={data.allStrapiArticle.edges} />
+            )}
+          />
+        </div>
       </section>
 
       <section className="py-8">
