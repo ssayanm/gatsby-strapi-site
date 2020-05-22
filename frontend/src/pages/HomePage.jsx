@@ -2,6 +2,7 @@ import React from "react"
 import Man from "../assets/images/man.png"
 import ManHome from "../assets/images/manhome.png"
 import { Link, StaticQuery, graphql } from "gatsby"
+import ArticlesComponent from "../components/ArticlesComponent"
 
 const HomePage = () => {
   return (
@@ -106,33 +107,26 @@ const HomePage = () => {
       <section className="bg-gray-100 pt-6 pb-6">
         <StaticQuery
           query={graphql`
-            {
-              allStrapiArticles {
+            query {
+              allStrapiArticle {
                 edges {
                   node {
+                    strapiId
                     title
+                    category {
+                      name
+                    }
                     image {
                       publicURL
                     }
-                    content
-                    strapiId
                   }
                 }
               }
             }
           `}
-          render={data =>
-            data.allStrapiArticles.edges.map((article, i) => {
-              return (
-                <div
-                  key={article.node.strapiId}
-                  className="p-3 cursor-pointer hover:text-gray-400"
-                >
-                  {article.node.title}
-                </div>
-              )
-            })
-          }
+          render={data => (
+            <ArticlesComponent articles={data.allStrapiArticle.edges} />
+          )}
         />
       </section>
 

@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        articles: allStrapiArticles {
+        articles: allStrapiArticle {
           edges {
             node {
               strapiId
@@ -40,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   articles.forEach((article, index) => {
     createPage({
       path: `/article/${article.node.strapiId}`,
-      component: require.resolve("./src/components/ArticlesComponent.jsx"),
+      component: require.resolve("./src/templates/article.js"),
       context: {
         id: article.node.strapiId,
       },
