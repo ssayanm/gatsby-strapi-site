@@ -32,8 +32,9 @@ const Category = ({ data }) => {
   return (
     <Layout>
       <div>
-        <h1>{category}</h1>
-
+        <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          {category}
+        </h1>
         <ArticlesComponent articles={articles} />
       </div>
     </Layout>
