@@ -8,7 +8,7 @@ const ContactPage = () => {
     <React.Fragment>
       <SEO title="Home" />
       <Header />
-      <section className="bg-gray-100 pt-6 pb-6">
+      <section className="pt-6 pb-6">
         <div className="container mx-auto px-2 pt-4 pb-12 text-gray-800">
           <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
             Contact Page
