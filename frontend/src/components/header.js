@@ -25,10 +25,7 @@ const Header = () => {
             >
               Contact
             </Link>
-            <Link
-              to="/article"
-              className="p-3 cursor-pointer hover:text-gray-400"
-            >
+            <Link to="/blog" className="p-3 cursor-pointer hover:text-gray-400">
               Blog
             </Link>
             <StaticQuery

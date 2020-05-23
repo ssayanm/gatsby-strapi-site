@@ -7,10 +7,7 @@ const ArticlesComponent = ({ articles }) => {
 
   return (
     <React.Fragment>
-      <div class="w-full mb-4">
-        <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-      </div>
-      <div className="container flex mb-4 w-full uppercase justify-center">
+      <div className="container flex mb-4 w-full uppercase justify-center flex-wrap">
         {articles.map(article => (
           <CardComponent article={article} />
         ))}
