@@ -1,7 +1,7 @@
 import React from "react"
 import "../assets/main.css"
 
-import HomePage from "./HomePage"
+import HomePage from "./home"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Footer from "../components/footer"

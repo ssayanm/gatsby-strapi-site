@@ -49,7 +49,7 @@ const Header = () => {
                   return (
                     <Link
                       key={category.node.strapiId}
-                      to={`/category/${category.node.strapiId}`}
+                      to={`/category/${category.node.name}`}
                       className="p-3 cursor-pointer hover:text-gray-400"
                     >
                       {category.node.name}

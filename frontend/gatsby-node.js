@@ -15,6 +15,7 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               strapiId
+              title
             }
           }
         }
@@ -22,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
           edges {
             node {
               strapiId
+              name
             }
           }
         }
@@ -37,23 +39,19 @@ exports.createPages = async ({ graphql, actions }) => {
   const articles = result.data.articles.edges
   const categories = result.data.categories.edges
 
-  articles.forEach((article, index) => {
+  articles.map((article, index) => {
     createPage({
-      path: `/article/${article.node.strapiId}`,
+      path: `/article/${article.node.title}`,
       component: require.resolve("./src/templates/article.js"),
       context: {
-        id: article.node.strapiId,
+        id: article.node.title,
       },
     })
   })
 
-  // articles.map(article => createPage({
-
-  // }))
-
-  categories.forEach((category, index) => {
+  categories.map((category, index) => {
     createPage({
-      path: `/category/${category.node.strapiId}`,
+      path: `/category/${category.node.name}`,
       component: require.resolve("./src/templates/category.js"),
       context: {
         id: category.node.strapiId,

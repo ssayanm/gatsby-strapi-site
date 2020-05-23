@@ -9,12 +9,12 @@ const CardComponent = ({ article }) => {
   //     : process.env.REACT_APP_BACKEND_URL + article.image.url
   return (
     <div>
-      <Link to={`/article/${article.node.strapiId}`}>
+      <Link to={`/article/${article.node.title}`}>
         <div className="m-3 rounded shadow-lg text-center w-72">
           <div className="">
             <img
               src={article.node.image.publicURL}
-              alt={article.node.image.publicURL}
+              alt={article.node.title}
               height="100"
               className="w-full h-80 object-cover"
             />
