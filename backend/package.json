@@ -12,7 +12,7 @@
   "devDependencies": {},
   "dependencies": {
     "dotenv": "^8.2.0",
-    "knex": "^0.21.1",
+    "knex": "^2.4.0",
     "sqlite3": "latest",
     "strapi-connector-mongoose": "^3.0.0",
     "strapi": "3.0.0",
